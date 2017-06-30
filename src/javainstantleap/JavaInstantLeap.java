@@ -79,6 +79,7 @@ public class JavaInstantLeap {
      System.out.println("Print out Epoch seconds of this instant");
      System.out.println(instant.getEpochSecond());
 
+     // need to add nano seconds - need to check if 1 Jul 2015 epoch is correct - 
 	in.close();
          
     }
