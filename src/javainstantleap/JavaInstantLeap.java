@@ -48,7 +48,7 @@ public class JavaInstantLeap {
         }
 
         String[] breakLast = stringList.get(stringList.size() - 1).split("#");
-        String[] testString = stringList.get(27).split("#");
+        String[] testString = stringList.get(26).split("#");
 
         // you'll get the first piece of the row in the file on the web ...
         System.out.println("\n");
@@ -63,15 +63,17 @@ public class JavaInstantLeap {
         Long epochUNIX = 0L;
         Long epochUNIXTest = 0L;
         Long offset = 2208988800L;
+
+
         epochUNIX = epochUNIX.valueOf(breakLastAgain[0]) - offset;
         System.out.println("\n");
-        System.out.println("The epoch time from 1970 (Unix Epoch Time) on January 1 2017:");
+        System.out.println("The epoch time from 1970 (Unix Epoch Time) on January 1 2017 should be 1483228800:");
         System.out.println(epochUNIX);
 
         String[] brokenTestString = testString[0].split("\\s+");
         epochUNIXTest = epochUNIXTest.valueOf(brokenTestString[0]) - offset;
         System.out.println("\n");
-        System.out.println("The epoch time from 1970 (Unix Epoch Time) on July 1 2015 array element 27 should be 36:");
+        System.out.println("The epoch time from 1970 (Unix Epoch Time) on July 1 2015 array element 27 should be  1435708800 :");
         System.out.println(epochUNIXTest);
 
         // now play with the instant class - 
@@ -82,10 +84,6 @@ public class JavaInstantLeap {
         System.out.println(instant.getEpochSecond());
         System.out.println("\n");
 
-        System.out.println("Second Last and Last entries - these have not been split yet");
-
-        System.out.println(stringList.get(stringList.size() - 2));
-        System.out.println(stringList.get(stringList.size() - 1));
 
         // need to add nano seconds - need to check if 1 Jul 2015 epoch is correct - 
         in.close();
