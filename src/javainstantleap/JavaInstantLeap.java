@@ -35,6 +35,26 @@ public class JavaInstantLeap {
                 new InputStreamReader(oracle.openStream()));
         return buffer;
     }
+    
+    public static List<String> entryList(BufferedReader in) throws IOException {
+
+        List<String> stringList = new ArrayList<String>();
+        String inputLine;
+        
+        while ((inputLine = in.readLine()) != null) {
+            if (inputLine.trim().startsWith("#")) {
+                //do nothing
+
+            } else {
+                System.out.println(inputLine);                
+                stringList.add(inputLine);
+
+            }
+
+        }
+        
+        return stringList;
+    }
 
     public static void main(String[] args) throws MalformedURLException, IOException {
 
@@ -91,7 +111,7 @@ public class JavaInstantLeap {
         String[] brokenTestString = testString[0].split("\\s+");
         epochUNIXTest = epochUNIXTest.valueOf(brokenTestString[0]) - offset;
         System.out.println("\n");
-        System.out.println("The epoch time from 1970 (Unix Epoch Time) on July 1 2015 array element 27 should be  1435708800 :");
+        System.out.println("The epoch time from 1970 (Unix Epoch Time) on July 1 2015 array index 26 should be  1435708800 :");
         System.out.println(epochUNIXTest);
 
         // now play with the instant class - 
