@@ -35,25 +35,25 @@ public class JavaInstantLeap {
                 new InputStreamReader(oracle.openStream()));
         return buffer;
     }
-    
+
     public static List<String> entryList(BufferedReader in) throws IOException {
 
-        List<String> stringList = new ArrayList<String>();
+        List<String> myStringList = new ArrayList<String>();
         String inputLine;
-        
+
         while ((inputLine = in.readLine()) != null) {
             if (inputLine.trim().startsWith("#")) {
                 //do nothing
 
             } else {
-                System.out.println(inputLine);                
-                stringList.add(inputLine);
+                System.out.println(inputLine);
+                myStringList.add(inputLine);
 
             }
 
         }
-        
-        return stringList;
+
+        return myStringList;
     }
 
     public static void main(String[] args) throws MalformedURLException, IOException {
@@ -62,17 +62,17 @@ public class JavaInstantLeap {
         URL oracle = new URL("https://www.ietf.org/timezones/data/leap-seconds.list");
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(oracle.openStream()));
-*/
-        //BufferedReader in = readFromWebFile();
-        BufferedReader in = readFromLocalFile();
-        
-        List<String> stringList = new ArrayList<String>();
+         */
+        BufferedReader in = readFromWebFile();
+   //     BufferedReader in = readFromLocalFile();
 
+//        List<String> stringList = new ArrayList<String>();
+        List<String> stringList = entryList(in);
         String inputLine;
         String lastLine = "";
-        
-        int ii = 0;
 
+        int ii = 0;
+/*
         while ((inputLine = in.readLine()) != null) {
             if (inputLine.trim().startsWith("#")) {
                 //do nothing
@@ -85,7 +85,7 @@ public class JavaInstantLeap {
             }
 
         }
-
+*/
         String[] breakLast = stringList.get(stringList.size() - 1).split("#");
         String[] testString = stringList.get(26).split("#");
 
