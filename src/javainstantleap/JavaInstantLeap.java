@@ -23,6 +23,7 @@ public class JavaInstantLeap {
      * @throws java.io.FileNotFoundException
      */
     public static BufferedReader readFromLocalFile() throws FileNotFoundException {
+        //ATTENTION incidental netbeans user should include their path in place of '/home/azfarl/' below 
         FileReader fr = new FileReader("/home/azfarl/NetBeansProjects/JavaInstantLeap/src/javainstantleap/textleapsecond.list");
         BufferedReader buffer = new BufferedReader(fr);
         return buffer;
