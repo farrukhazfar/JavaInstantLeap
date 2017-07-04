@@ -20,18 +20,35 @@ public class JavaInstantLeap {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
      */
+    public static BufferedReader readFromLocalFile() throws FileNotFoundException {
+        FileReader fr = new FileReader("textleapsecond.list");
+        BufferedReader buffer = new BufferedReader(fr);
+        return buffer;
+    }
+
+    public static BufferedReader readFromWebFile() throws MalformedURLException, IOException {
+        URL oracle = new URL("https://www.ietf.org/timezones/data/leap-seconds.list");
+        BufferedReader buffer = new BufferedReader(
+                new InputStreamReader(oracle.openStream()));
+        return buffer;
+    }
+
     public static void main(String[] args) throws MalformedURLException, IOException {
 
+        /*
         URL oracle = new URL("https://www.ietf.org/timezones/data/leap-seconds.list");
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(oracle.openStream()));
-
+*/
+        BufferedReader in = readFromWebFile();
+        
         List<String> stringList = new ArrayList<String>();
 
         String inputLine;
         String lastLine = "";
-        String seconLast = "";
+        
         int ii = 0;
 
         while ((inputLine = in.readLine()) != null) {
@@ -64,7 +81,6 @@ public class JavaInstantLeap {
         Long epochUNIXTest = 0L;
         Long offset = 2208988800L;
 
-
         epochUNIX = epochUNIX.valueOf(breakLastAgain[0]) - offset;
         System.out.println("\n");
         System.out.println("The epoch time from 1970 (Unix Epoch Time) on January 1 2017 should be 1483228800:");
@@ -83,7 +99,6 @@ public class JavaInstantLeap {
         System.out.println("Print out Epoch seconds of this instant");
         System.out.println(instant.getEpochSecond());
         System.out.println("\n");
-
 
         // need to add nano seconds - need to check if 1 Jul 2015 epoch is correct - 
         in.close();
