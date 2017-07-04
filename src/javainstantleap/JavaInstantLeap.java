@@ -23,7 +23,7 @@ public class JavaInstantLeap {
      * @throws java.io.FileNotFoundException
      */
     public static BufferedReader readFromLocalFile() throws FileNotFoundException {
-        FileReader fr = new FileReader("textleapsecond.list");
+        FileReader fr = new FileReader("/home/azfarl/NetBeansProjects/JavaInstantLeap/src/javainstantleap/textleapsecond.list");
         BufferedReader buffer = new BufferedReader(fr);
         return buffer;
     }
@@ -42,7 +42,8 @@ public class JavaInstantLeap {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(oracle.openStream()));
 */
-        BufferedReader in = readFromWebFile();
+        //BufferedReader in = readFromWebFile();
+        BufferedReader in = readFromLocalFile();
         
         List<String> stringList = new ArrayList<String>();
 
