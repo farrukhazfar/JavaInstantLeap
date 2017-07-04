@@ -63,8 +63,8 @@ public class JavaInstantLeap {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(oracle.openStream()));
          */
-        BufferedReader in = readFromWebFile();
-   //     BufferedReader in = readFromLocalFile();
+       /// BufferedReader in = readFromWebFile();
+            BufferedReader in = readFromLocalFile();
 
 //        List<String> stringList = new ArrayList<String>();
         List<String> stringList = entryList(in);
@@ -72,20 +72,7 @@ public class JavaInstantLeap {
         String lastLine = "";
 
         int ii = 0;
-/*
-        while ((inputLine = in.readLine()) != null) {
-            if (inputLine.trim().startsWith("#")) {
-                //do nothing
 
-            } else {
-                System.out.println(inputLine);
-                lastLine = inputLine;
-                stringList.add(inputLine);
-
-            }
-
-        }
-*/
         String[] breakLast = stringList.get(stringList.size() - 1).split("#");
         String[] testString = stringList.get(26).split("#");
 
@@ -121,8 +108,12 @@ public class JavaInstantLeap {
         System.out.println("Print out Epoch seconds of this instant");
         System.out.println(instant.getEpochSecond());
         System.out.println("\n");
-
-        // need to add nano seconds - need to check if 1 Jul 2015 epoch is correct - 
+  
+        if(instant.getEpochSecond() <= epochUNIX)
+        {
+            System.out.println("Final leap second date in file is later than now - will take previous leap second");
+        }
+        
         in.close();
 
     }
