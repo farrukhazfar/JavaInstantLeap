@@ -112,6 +112,8 @@ public class JavaInstantLeap {
         if(instant.getEpochSecond() <= epochUNIX)
         {
             System.out.println("Final leap second date in file is later than now - will take previous leap second");
+            System.out.println(".. which is "+ stringList.get(stringList.size() - 2).split("#")[0].split("\\s+")[1]);
+
         }
         
         in.close();
